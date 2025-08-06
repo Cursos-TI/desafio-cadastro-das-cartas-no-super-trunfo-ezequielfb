@@ -6,19 +6,23 @@ int main() {
     char estado1;                    // Estado da carta 1 (A-H)
     char codigo1[4];                 // Código da carta 1 (ex: A01)
     char nome_cidade1[50];           // Nome da cidade da carta 1
-    int populacao1;                  // População da cidade da carta 1
+    float populacao1;                  // População da cidade da carta 1
     float area1;                     // Área da cidade da carta 1 em km²
     float pib1;                      // PIB da cidade da carta 1 em bilhões
     int pontos_turisticos1;          // Número de pontos turísticos da carta 1
+    float densidade_populacional1;   // Densidade populacional da carta 1
+    float pib_per_capita1;           // PIB per capita da carta 1
     
     // Declaração de variaveis para a Carta 2
     char estado2;                    // Estado da carta 2 (A-H)
     char codigo2[4];                 // Código da carta 2 (ex: B02)
     char nome_cidade2[50];           // Nome da cidade da carta 2
-    int populacao2;                  // População da cidade da carta 2
+    float populacao2;                // População da cidade da carta 2
     float area2;                     // Área da cidade da carta 2 em km²
     float pib2;                      // PIB da cidade da carta 2 em bilhões
     int pontos_turisticos2;          // Número de pontos turísticos da carta 2
+    float densidade_populacional2;   // Densidade populacional da carta 2
+    float pib_per_capita2;           // PIB per capita da carta 2
     
     // Cabeçalho do programa
     printf("=== SUPER TRUNFO - CADASTRO DE CARTAS ===\n\n");
@@ -40,7 +44,7 @@ int main() {
     
     // Leitura da população da cidade
     printf("Digite a populacao: ");
-    scanf("%d", &populacao1);
+    scanf("%f", &populacao1);
     
     // Leitura da área da cidade em km²
     printf("Digite a area (em quilometros quadrados): ");
@@ -53,6 +57,10 @@ int main() {
     // Leitura do número de pontos turísticos
     printf("Digite o numero de pontos turisticos: ");
     scanf("%d", &pontos_turisticos1);
+
+    // === CÁLCULOS PARA A CARTA 1 ===
+    densidade_populacional1 = populacao1 / area1;              // Densidade = População / Área
+    pib_per_capita1 = (pib1 * 1000000000) / populacao1;        // PIB per capita = (PIB em reais) / População
     
     // Quebra de linha para separar as cartas
     printf("\n");
@@ -74,7 +82,7 @@ int main() {
     
     // Leitura da população da cidade
     printf("Digite a populacao: ");
-    scanf("%d", &populacao2);
+    scanf("%f", &populacao2);
     
     // Leitura da área da cidade
     printf("Digite a area (em quilometros quadrados): ");
@@ -82,11 +90,15 @@ int main() {
     
     // Leitura do PIB da cidade
     printf("Digite o PIB (em bilhoes de reais): ");
-    scanf("%f", &pib2);
+    scanf("%f/n", &pib2);
     
     // Leitura do número de pontos turísticos
     printf("Digite o numero de pontos turisticos: ");
     scanf("%d", &pontos_turisticos2);
+
+     // === CÁLCULOS PARA A CARTA 2 ===
+    densidade_populacional2 = populacao2 / area2;
+    pib_per_capita2 = (pib2 * 1000000000) / populacao2;
     
     // Exibição de dados das cartas
     printf("\n\n=== CARTAS CADASTRADAS ===\n\n");
@@ -100,6 +112,8 @@ int main() {
     printf("Area: %.2f quilometros quadrados\n", area1);// %.2f mostra 2 casas decimais
     printf("PIB: %.2f bilhoes de reais\n", pib1);
     printf("Numero de Pontos Turisticos: %d\n", pontos_turisticos1);
+    printf("Densidade Populacional: %.2f hab/quilometro quadrado\n", densidade_populacional1);
+    printf("PIB per Capita: %.2f reais\n", pib_per_capita1);
     printf("\n");// Linha em branco entre as cartas
     
     // Exibição completa da Carta 2
@@ -111,6 +125,8 @@ int main() {
     printf("Area: %.2f quilometros quadrados\n", area2); 
     printf("PIB: %.2f bilhoes de reais\n", pib2);
     printf("Numero de Pontos Turisticos: %d\n", pontos_turisticos2);
+        printf("Densidade Populacional: %.2f hab/quilometro quadrado\n", densidade_populacional2);
+    printf("PIB per Capita: %.2f reais\n", pib_per_capita2);
     
     // Retorna 0 indicando execução bem-sucedida
     return 0;
